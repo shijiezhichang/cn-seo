@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta描述优化器 - 在线生成高CTR的Meta Description - 中文SEO工具箱</title>
+<meta name="description" content="免费在线Meta描述生成器，输入页面主题和关键词，自动生成多个高点击率Meta Description方案，附长度检查和CTR优化建议。">
+<meta name="keywords" content="Meta描述,Meta Description,CTR优化,搜索引擎摘要,标题优化,点击率提升,SEO描述">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:#e0e0e0;min-height:100vh;display:flex;flex-direction:column}
+header{text-align:center;padding:36px 20px 20px}
+header h1{font-size:clamp(1.5rem,3.5vw,2.2rem);background:linear-gradient(90deg,#00d2ff,#7b2ff7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.container{max-width:900px;margin:0 auto;padding:0 20px 32px;width:100%;flex:1}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#aaa;font-size:.88rem;margin-bottom:6px}
+.form-group textarea,.form-group input{width:100%;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 14px;color:#e0e0e0;font-size:.95rem;font-family:inherit;resize:vertical}
+.form-group textarea:focus,.form-group input:focus{outline:none;border-color:#7b2ff7}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.btn{background:linear-gradient(135deg,#7b2ff7,#00d2ff);color:#fff;border:none;padding:14px 28px;border-radius:10px;font-size:1rem;cursor:pointer;transition:opacity .2s;width:100%;margin-top:6px}
+.btn:hover{opacity:.85}
+.preview-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px;margin-bottom:10px;transition:border-color .2s}
+.preview-card:hover{border-color:rgba(123,47,247,.4)}
+.snippet-google{background:#fff;border-radius:8px;padding:12px 16px;margin-bottom:10px;font-family:Arial,sans-serif}
+.snippet-url{color:#1a0dab;font-size:.85rem;margin-bottom:4px}
+.snippet-title{color:#1a0dab;font-size:1.2rem;line-height:1.3;margin-bottom:4px}
+.snippet-desc{color:#4d5156;font-size:.88rem;line-height:1.4}
+.snippet-desc em{font-style:normal;color:#000}
+.copy-btn{background:rgba(0,210,255,.15);border:1px solid rgba(0,210,255,.3);color:#00d2ff;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:.8rem;float:right;transition:all .2s}
+.copy-btn:hover{background:rgba(0,210,255,.3)}
+.meta-info{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;padding-top:6px}
+.meta-info span{color:#aaa}
+.meta-info .good{color:#69f0ae}
+.meta-info .warn{color:#ffab40}
+.meta-info .bad{color:#ff5252}
+.tip-panel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;margin-top:20px}
+.tip-panel h3{color:#aaa;font-size:.95rem;margin-bottom:12px}
+.tip-panel ul{list-style:none;padding:0}
+.tip-panel li{color:#ccc;font-size:.88rem;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.5}
+.tip-panel li:last-child{border-bottom:none}
+.tools-links,.cross-links,.copyright{margin-top:16px;text-align:center}
+.tools-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.tools-links a{color:#00d2ff;text-decoration:none;font-size:.85rem;padding:4px 12px;background:rgba(0,210,255,.1);border-radius:6px;transition:background .2s}
+.tools-links a:hover{background:rgba(0,210,255,.25)}
+.cross-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:16px 0;border-top:1px solid rgba(255,255,255,.1)}
+.cross-links a{color:#aaa;text-decoration:none;font-size:.82rem;white-space:nowrap}
+.cross-links a:hover{color:#00d2ff}
+.copyright{color:#666;font-size:.78rem;padding:12px 0 20px}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><h1>📝 Meta描述优化器</h1></header>
+<div class="container">
+<div class="form-row">
+<div class="form-group"><label>页面主题</label><input type="text" id="topic" placeholder="例如：SEO优化工具"></div>
+<div class="form-group"><label>核心关键词</label><input type="text" id="keyword" placeholder="例如：关键词分析"></div>
+</div>
+<div class="form-group"><label>补充描述（可选）</label><textarea id="extra" rows="2" placeholder="补充产品特色、服务优势等信息..."></textarea></div>
+<div class="form-row">
+<div class="form-group"><label>目标语言</label><select id="lang"><option value="zh">中文</option><option value="en">English</option></select></div>
+<div class="form-group"><label>生成数量</label><select id="qty"><option value="5">5个方案</option><option value="8">8个方案</option><option value="10">10个方案</option></select></div>
+</div>
+<button class="btn" onclick="generate()">🚀 生成Meta描述</button>
+<div id="results" style="margin-top:20px"></div>
+<div class="tip-panel">
+<h3>📌 Meta Description优化要点</h3>
+<ul>
+<li>长度控制在 <strong style="color:#00d2ff">70-155个中文字符</strong>（约150-160英文字符）</li>
+<li>核心关键词出现在前 <strong style="color:#00d2ff">50个字符</strong> 内，搜索结果中会加粗显示</li>
+<li>包含明确的 <strong style="color:#00d2ff">行动号召</strong>（如"立即免费试用""了解更多"）</li>
+<li>突出页面 <strong style="color:#00d2ff">独特价值</strong>，与其他搜索结果区分</li>
+<li>每个页面的Meta Description应该 <strong style="color:#00d2ff">唯一</strong></li>
+<li>不要堆砌关键词，保持 <strong style="color:#00d2ff">自然可读</strong></li>
+<li>使用数字、符号增加 <strong style="color:#00d2ff">视觉吸引力</strong></li>
+</ul>
+</div>
+</div>
+<footer>
+<div class="tools-links">
+<a href="keyword-density.html">关键词密度</a>
+<a href="title-generator.html">标题生成器</a>
+<a href="meta-description.html">Meta描述</a>
+<a href="index.html">← 工具列表</a>
+</div>
+<div class="cross-links">
+<a href="/ai-daily-news/">🤖 AI日报</a>
+<a href="/english-interview/">🚀 English Interview</a>
+<a href="/chuangye-weekly/">🌏 出海工具周报</a>
+<a href="/indie-dev-weekly/">🧑‍💻 独立开发者周刊</a>
+<a href="/nocode-tools/">🔧 NoCode工具导航</a>
+<a href="/cn-seo-site/">🔍 中文SEO工具箱</a>
+</div>
+<p class="copyright">© 2025 AI站群旗下站点</p>
+</footer>
+<script>
+function gen(){const t=document.getElementById('topic').value.trim(),k=document.getElementById('keyword').value.trim(),e=document.getElementById('extra').value.trim(),lang=document.getElementById('lang').value,qty=parseInt(document.getElementById('qty').value);
+if(!t){alert('请输入页面主题');return}
+const br=k?k:t;const extras=e?`。${e}`:'';
+const zhTemplates=[
+`【${t}】${extras}专业${br}服务，助力您的业务增长。${k?`提供${k}功能。`:''}立即体验！`,
+`${t} - ${br}一站式解决方案${extras}。${k?`${k}，效果显著。`:''}免费试用中。`,
+`${k?`${k}首选平台。`:''}${t}专业服务提供商${extras}。${br}助您轻松上手，效果立竿见影。`,
+`${t}全面指南${extras}。涵盖${k?`${k}及更多实用技巧。`:''}新手友好，专业推荐。`,
+`${br}为您提供优质的${t}服务${extras}。${k?`${k}功能强大，操作简单。`:''}限时优惠中。`,
+`${t}有哪些好处？${extras}${k?`${k}是关键因素之一。`:''}了解更多${br}的专业见解。`,
+`${k?`${k}深度解析。`:''}${t}全方位服务${extras}。${br}值得信赖的合作伙伴。`,
+`${t}推荐榜单${extras}。${k?`${k}功能一览。`:''}${br}为您精选最佳方案。`,
+`选择${br}，享受${t}专业服务${extras}。${k?`${k}效果看得见。`:''}用户好评如潮。`,
+`${t}入门教程${extras}。${k?`${k}从零开始学。`:''}${br}陪伴您的每一步成长。`,
+`${k?`${k}最佳工具推荐。`:''}${t}一站式平台${extras}。${br}让工作更高效。`,
+`${t}最新趋势与策略${extras}。${br}专业团队为您解读。立即查看。`,
+`${br}——${t}领域的领先者${extras}。${k?`${k}经验丰富，服务周到。`:''}值得信赖。`,
+`${k?`${k}专业指导。`:''}${t}全面服务${extras}。${br}助力您的成功之路。`,
+`${t}对比评测${extras}。${k?`${k}哪家强？`:''}${br}给您最客观的答案。`,
+];
+const enTemplates=[
+`${t}: ${br}'s Professional Solution${extras}. ${k?`Featuring ${k}.`:''}Try free today!`,
+`Discover ${t} with ${br}${extras}. ${k?`Powerful ${k} tools included.`:''}Learn more now.`,
+`${k?`${k} Expert Platform. `:''}${t} Services by ${br}${extras}. Trusted by thousands.`,
+`${t} Guide ${br}${extras}. ${k?`Master ${k} quickly.`:''}Start your journey today.`,
+`Professional ${t} Solutions${extras}. ${br} offers ${k?`${k} and more.`:''}Get started free.`,
+`${k?`${k} Made Simple. `:''}${t} Services${extras}. ${br} — Your Trusted Partner.`,
+`${t} Tips & Strategies${extras}. ${br} helps you succeed. ${k?`${k} experts available.`:''}`,
+`Best ${t} Resources${extras}. ${br} curates top solutions. ${k?`${k} guides included.`:''}`,
+`${t} Simplified${extras}. ${k?`${k} made easy.`:''} ${br} — trusted by professionals worldwide.`,
+`${k?`${k} Solutions. `:''}${t} Services${extras}. ${br} delivers results. Contact us today.`,
+];
+const all=lang==='en'?enTemplates:zhTemplates;
+const selected=all.slice(0,qty);
+document.getElementById('results').innerHTML=selected.map((desc,i)=>{
+const len=desc.length;const cnLen=desc.replace(/[a-zA-Z0-9\s]/g,'').length+Math.ceil(desc.match(/[a-zA-Z0-9]/g)?.length/2||0);
+const cls=len<=160?cnLen<=80?'good':cnLen>120?'warn':'good':cnLen>150?'bad':'warn';
+const googleTitle=`${br} - ${t}`;
+const highlighted=desc.replace(new RegExp(k||br,'g'),'<em>$&</em>');
+return`<div class="preview-card"><div class="snippet-google"><div class="snippet-url">www.example.com › ${t.toLowerCase()}</div><div class="snippet-title">${esc(googleTitle)}</div><div class="snippet-desc">${highlighted}</div></div><div style="overflow:hidden"><button class="copy-btn" onclick="copyDesc(${i})">复制</button></div><div class="meta-info"><span class="${cls}">字符数：${len}</span><span>预估中文：${cnLen}</span><span>风格：${i%3===0?'引导型':i%3===1?'说明型':'推荐型'}</span></div></div>`}).join('')+'<div id="allDescs" style="display:none">'+selected.join('\n')+'</div>';
+window._descriptions=selected}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function copyDesc(i){if(window._descriptions&&window._descriptions[i]){navigator.clipboard.writeText(window._descriptions[i]).then(()=>alert('已复制到剪贴板')).catch(()=>{const ta=document.createElement('textarea');ta.value=window._descriptions[i];document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);alert('已复制到剪贴板')})}}</script>
+</body>
+</html>

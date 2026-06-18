@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关键词密度分析器 - 在线SEO关键词频率统计工具 - 中文SEO工具箱</title>
+<meta name="description" content="免费在线关键词密度分析工具，输入网页文本即可统计词频、计算关键词密度、识别过度优化风险，获取SEO优化建议。">
+<meta name="keywords" content="关键词密度,SEO分析,词频统计,关键词优化,中文SEO,过度优化检测">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:#e0e0e0;min-height:100vh;display:flex;flex-direction:column}
+header{text-align:center;padding:36px 20px 20px}
+header h1{font-size:clamp(1.5rem,3.5vw,2.2rem);background:linear-gradient(90deg,#00d2ff,#7b2ff7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.container{max-width:900px;margin:0 auto;padding:0 20px 32px;width:100%;flex:1}
+textarea{width:100%;height:200px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:14px;color:#e0e0e0;font-size:.95rem;font-family:inherit;resize:vertical;line-height:1.7}
+textarea:focus{outline:none;border-color:#7b2ff7}
+.btn{background:linear-gradient(135deg,#7b2ff7,#00d2ff);color:#fff;border:none;padding:12px 28px;border-radius:10px;font-size:1rem;cursor:pointer;transition:opacity .2s;margin-top:14px}
+.btn:hover{opacity:.85}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin:20px 0}
+.stat-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px;text-align:center}
+.stat-card .num{font-size:1.6rem;font-weight:700;background:linear-gradient(90deg,#00d2ff,#7b2ff7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card .lbl{color:#aaa;font-size:.8rem;margin-top:4px}
+.panel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;margin-top:16px}
+.panel h3{font-size:1rem;color:#aaa;margin-bottom:12px}
+.freq-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.freq-table th{text-align:left;color:#aaa;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.15);font-weight:500}
+.freq-table td{padding:7px 10px;border-bottom:1px solid rgba(255,255,255,.06)}
+.freq-table tr:hover td{background:rgba(123,47,247,.1)}
+.bar-cell{width:40%}
+.bar-bg{background:rgba(255,255,255,.08);border-radius:4px;height:18px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,#7b2ff7,#00d2ff);border-radius:4px;transition:width .4s}
+.warn{background:rgba(255,100,100,.12);border:1px solid rgba(255,100,100,.3);border-radius:10px;padding:14px;margin-top:16px;color:#ff8a80;font-size:.9rem;line-height:1.6}
+.warn strong{color:#ff5252}
+.ok{background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.2);border-radius:10px;padding:14px;margin-top:16px;color:#69f0ae;font-size:.9rem;line-height:1.6}
+.filters{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
+.filters select,.filters input{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px 12px;color:#e0e0e0;font-size:.88rem}
+.filters input:focus,.filters select:focus{outline:none;border-color:#7b2ff7}
+.tools-links,.cross-links,.copyright{margin-top:16px;text-align:center}
+.tools-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.tools-links a{color:#00d2ff;text-decoration:none;font-size:.85rem;padding:4px 12px;background:rgba(0,210,255,.1);border-radius:6px;transition:background .2s}
+.tools-links a:hover{background:rgba(0,210,255,.25)}
+.cross-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:16px 0;border-top:1px solid rgba(255,255,255,.1)}
+.cross-links a{color:#aaa;text-decoration:none;font-size:.82rem;white-space:nowrap}
+.cross-links a:hover{color:#00d2ff}
+.copyright{color:#666;font-size:.78rem;padding:12px 0 20px}
+</style>
+</head>
+<body>
+<header><h1>📊 关键词密度分析器</h1></header>
+<div class="container">
+<textarea id="textInput" placeholder="在此粘贴网页文本内容，或手动输入...&#10;&#10;示例：我们的网站提供最好的SEO优化服务，包括关键词分析、标题优化、Meta描述优化等SEO工具。"></textarea>
+<button class="btn" onclick="analyze()">🔍 分析关键词密度</button>
+<div id="results" style="display:none">
+<div class="stats" id="statsBar"></div>
+<div class="panel">
+<h3>📋 常用词统计（前20个）</h3>
+<div class="filters">
+<label style="color:#aaa;font-size:.85rem">过滤最少出现次数：</label>
+<input type="number" id="minFreq" value="2" min="1" max="50" style="width:70px" onchange="showTopWords()">
+</div>
+<table class="freq-table"><thead><tr><th>关键词</th><th class="bar-cell">密度</th><th>频次</th><th>占比</th></tr></thead><tbody id="freqBody"></tbody></table>
+</div>
+<div class="panel">
+<h3>💡 SEO建议</h3>
+<div id="adviceBox"></div>
+</div>
+</div>
+</div>
+<footer>
+<div class="tools-links">
+<a href="keyword-density.html">关键词密度</a>
+<a href="title-generator.html">标题生成器</a>
+<a href="meta-description.html">Meta描述</a>
+<a href="index.html">← 工具列表</a>
+</div>
+<div class="cross-links">
+<a href="/ai-daily-news/">🤖 AI日报</a>
+<a href="/english-interview/">🚀 English Interview</a>
+<a href="/chuangye-weekly/">🌏 出海工具周报</a>
+<a href="/indie-dev-weekly/">🧑‍💻 独立开发者周刊</a>
+<a href="/nocode-tools/">🔧 NoCode工具导航</a>
+<a href="/cn-seo-site/">🔍 中文SEO工具箱</a>
+</div>
+<p class="copyright">© 2025 AI站群旗下站点</p>
+</footer>
+<script>
+const STOP_WORDS=new Set('的了我是不在和就有都对就学生要以在为这主要上当地有过想中月从小大上来时候到做说需要对于这个年会被那么您去看多后还是以公司工作如何让时因为加入一个通过每天企业可以开主要管理中国用于联系提供服务这样其中这个网站了解市场为什么可以已经没有技术什么开发重要手机用户问题因为可以主要通过一下这个服务我们技术公司可以设计开发提供运营支持帮助专业团队为您打造优质解决方案品牌营销推广网站建设优化服务数据分析用户体验产品策划创新科技互联网数字转型智慧升级赋能助力前行共赢未来创造价值引领潮流追求卓越成就梦想持续改进精益求精专注品质用心服务客户至上信誉第一合作共赢携手并进共创辉煌展望未来无限可能';);
+function analyze(){const text=document.getElementById('textInput').value.trim();if(!text){alert('请输入文本内容');return}
+const words=countWords(text);const total=words.length;const unique=new Set(words).size;
+document.getElementById('statsBar').innerHTML=`<div class="stat-card"><div class="num">${total}</div><div class="lbl">总字数</div></div><div class="stat-card"><div class="num">${unique}</div><div class="lbl">不同字词</div></div><div class="stat-card"><div class="num">${(total/unique).toFixed(1)}</div><div class="lbl">平均重复</div></div><div class="stat-card"><div class="num">${(total/300).toFixed(1)}%</div><div class="lbl">相对密度</div></div>`;
+showTopWords();generateAdvice(words,total,unique)}
+function countWords(text){let cleaned=text.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g,' ').replace(/\s+/g,' ').trim();const words=cleaned.split(' ').filter(w=>w.length>=1&&!(w.length<=2&&STOP_WORDS.has(w)));return words}
+function showTopWords(){const words=countWords(document.getElementById('textInput').value.trim());if(!words.length)return;const freq={};words.forEach(w=>freq[w]=(freq[w]||0)+1);const sorted=Object.entries(freq).sort((a,b)=>b[1]-a[1]);const minFreq=parseInt(document.getElementById('minFreq').value)||1;const filtered=sorted.filter(e=>e[1]>=minFreq);const total=words.length;const maxFreq=filtered[0]?filtered[0][1]:1;
+document.getElementById('freqBody').innerHTML=filtered.slice(0,20).map(([w,c])=>{const pct=(c/total*100).toFixed(2);const barW=(c/maxFreq*100).toFixed(0);return`<tr><td>${escHtml(w)}</td><td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:${barW}%"></div></div></td><td>${c}</td><td>${pct}%</td></tr>`}).join('')}
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function generateAdvice(words,total,unique){const freq={};words.forEach(w=>freq[w]=(freq[w]||0)+1);const sorted=Object.entries(freq).sort((a,b)=>b[1]-a[1]);let html='';const top1=sorted[0]?sorted[0][1]/total*100:0;const top3=sorted.slice(0,3).reduce((s,e)=>s+e[1]/total*100,0);
+if(top1>5){html+=`<div class="warn">⚠️ 最高频词密度 <strong>${top1.toFixed(1)}%</strong> 过高（建议≤3%），存在过度优化风险，请适当降低该词出现频率。</div>`}else if(top1>3){html+=`<div class="warn">⚠️ 最高频词密度 <strong>${top1.toFixed(1)}%</strong> 偏高，建议控制在3%以内。</div>`}else{html+=`<div class="ok">✅ 最高频词密度 <strong>${top1.toFixed(1)}%</strong> 在合理范围内（1%-3%为佳）。</div>`}
+if(total<100){html+=`<div class="warn">⚠️ 文本内容较少（${total}字），建议至少300字以上以获得有意义的分析结果。</div>`}
+if(sorted.length<5){html+=`<div class="warn">⚠️ 词汇多样性较低，建议丰富内容表达。</div>`}
+html+=`<p style="color:#aaa;font-size:.85rem;margin-top:10px">💡 提示：中文关键词密度建议保持在 <strong style="color:#00d2ff">1%-3%</strong> 之间，英文内容建议 <strong style="color:#00d2ff">0.5%-2.5%</strong>。前3个高频词合计密度建议不超过 <strong style="color:#00d2ff">${top3.toFixed(1)}%</strong>（当前）。</p>`;
+document.getElementById('adviceBox').innerHTML=html;
+document.getElementById('results').style.display='block'}
+</script>
+</body>
+</html>

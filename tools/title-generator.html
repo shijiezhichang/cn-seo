@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO标题生成器 - 在线生成优化标题/提高搜索排名 - 中文SEO工具箱</title>
+<meta name="description" content="免费在线SEO标题生成器，输入关键词和产品名称，智能生成多种标题方案，附带长度检查和关键词位置优化建议。">
+<meta name="keywords" content="SEO标题生成,标题优化,搜索引擎标题,标题模板,关键词布局,CTR优化">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:#e0e0e0;min-height:100vh;display:flex;flex-direction:column}
+header{text-align:center;padding:36px 20px 20px}
+header h1{font-size:clamp(1.5rem,3.5vw,2.2rem);background:linear-gradient(90deg,#00d2ff,#7b2ff7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.container{max-width:900px;margin:0 auto;padding:0 20px 32px;width:100%;flex:1}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#aaa;font-size:.88rem;margin-bottom:6px}
+.form-group input,.form-group select{width:100%;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 14px;color:#e0e0e0;font-size:.95rem}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#7b2ff7}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.btn{background:linear-gradient(135deg,#7b2ff7,#00d2ff);color:#fff;border:none;padding:14px 28px;border-radius:10px;font-size:1rem;cursor:pointer;transition:opacity .2s;width:100%;margin-top:6px}
+.btn:hover{opacity:.85}
+.result-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px;margin-bottom:10px;transition:border-color .2s}
+.result-card:hover{border-color:rgba(123,47,247,.4)}
+.result-title{font-size:1.05rem;color:#fff;margin-bottom:8px;line-height:1.5}
+.result-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem}
+.result-meta span{color:#aaa}
+.result-meta .good{color:#69f0ae}
+.result-meta .warn{color:#ffab40}
+.result-meta .bad{color:#ff5252}
+.copy-btn{background:rgba(0,210,255,.15);border:1px solid rgba(0,210,255,.3);color:#00d2ff;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:.8rem;margin-left:auto;transition:all .2s}
+.copy-btn:hover{background:rgba(0,210,255,.3)}
+.tip-panel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;margin-top:20px}
+.tip-panel h3{color:#aaa;font-size:.95rem;margin-bottom:12px}
+.tip-panel ul{list-style:none;padding:0}
+.tip-panel li{color:#ccc;font-size:.88rem;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.5}
+.tip-panel li:last-child{border-bottom:none}
+.tools-links,.cross-links,.copyright{margin-top:16px;text-align:center}
+.tools-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.tools-links a{color:#00d2ff;text-decoration:none;font-size:.85rem;padding:4px 12px;background:rgba(0,210,255,.1);border-radius:6px;transition:background .2s}
+.tools-links a:hover{background:rgba(0,210,255,.25)}
+.cross-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:16px 0;border-top:1px solid rgba(255,255,255,.1)}
+.cross-links a{color:#aaa;text-decoration:none;font-size:.82rem;white-space:nowrap}
+.cross-links a:hover{color:#00d2ff}
+.copyright{color:#666;font-size:.78rem;padding:12px 0 20px}
+#results{margin-top:20px}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><h1>✏️ SEO标题生成器</h1></header>
+<div class="container">
+<div class="form-row">
+<div class="form-group"><label>核心关键词</label><input type="text" id="keyword" placeholder="例如：SEO优化服务"></div>
+<div class="form-group"><label>产品名称/品牌名</label><input type="text" id="brand" placeholder="例如：AI站长工具"></div>
+</div>
+<div class="form-row">
+<div class="form-group"><label>目标字数</label><select id="targetLen"><option value="30">30字符以内（推荐）</option><option value="40">40字符以内</option><option value="50">50字符以内</option><option value="60">60字符以内</option></select></div>
+<div class="form-group"><label>标题风格</label><select id="style"><option value="mixed">综合推荐</option><option value="question">疑问句式</option><option value="list">列表/数字</option><option value="urgent">紧迫感</option><option value="benefit">利益导向</option></select></div>
+</div>
+<button class="btn" onclick="generate()">🚀 生成标题方案</button>
+<div id="results"></div>
+<div class="tip-panel">
+<h3>📌 SEO标题优化要点</h3>
+<ul>
+<li>标题长度控制在 <strong style="color:#00d2ff">28-30个中文字符</strong>（约55-60英文字符）以内</li>
+<li>核心关键词尽量放在标题 <strong style="color:#00d2ff">最前面</strong>，权重更高</li>
+<li>使用数字、符号（| · —）增加可读性和点击率</li>
+<li>避免重复关键词，保持自然流畅</li>
+<li>每个页面标题应 <strong style="color:#00d2ff">唯一</strong>，不要重复</li>
+<li>加入行动号召词如"免费""最新""必备"提升CTR</li>
+</ul>
+</div>
+</div>
+<footer>
+<div class="tools-links">
+<a href="keyword-density.html">关键词密度</a>
+<a href="title-generator.html">标题生成器</a>
+<a href="meta-description.html">Meta描述</a>
+<a href="index.html">← 工具列表</a>
+</div>
+<div class="cross-links">
+<a href="/ai-daily-news/">🤖 AI日报</a>
+<a href="/english-interview/">🚀 English Interview</a>
+<a href="/chuangye-weekly/">🌏 出海工具周报</a>
+<a href="/indie-dev-weekly/">🧑‍💻 独立开发者周刊</a>
+<a href="/nocode-tools/">🔧 NoCode工具导航</a>
+<a href="/cn-seo-site/">🔍 中文SEO工具箱</a>
+</div>
+<p class="copyright">© 2025 AI站群旗下站点</p>
+</footer>
+<script>
+function gen(){const kw=document.getElementById('keyword').value.trim(),br=document.getElementById('brand').value.trim(),maxLen=parseInt(document.getElementById('targetLen').value),style=document.getElementById('style').value;
+if(!kw){alert('请输入核心关键词');return}
+const templates=[];
+const sep=br?` | ${br}`:'';
+const kwFirst=`【${kw}】`;const kwMid=`${kw}推荐`;const kwEnd=`${kw}大全`;
+templates.push({t:`${kw} - ${br?' '+br:''}专业优化解决方案${sep}`,s:'标准型'});
+templates.push({t:`${kw} | ${br||'一站式'}服务平台${sep}`,s:'简洁型'});
+templates.push({t:`${kw}是什么？${br||'专业团队'}为您解答${sep}`,s:'疑问型'});
+templates.push({t:`${kw}完整指南${sep}（${br||'最新版'}）`,s:'指南型'});
+templates.push({t:`${kw}十大技巧${sep}${br||'新手必看'}`,s:'列表型'});
+templates.push({t:`${kw} - ${br||'立即'}免费试用${sep}`,s:'CTA型'});
+templates.push({t:`${kw}排名优化攻略${sep}${br||'亲测有效'}`,s:'攻略型'});
+templates.push({t:`${kw}对比评测${sep}${br||'谁更好用？'}`,s:'评测型'});
+templates.push({t:`${kw}最新教程${sep}${br||'2025年版'}`,s:'时效型'});
+templates.push({t:`${kw}入门到精通${sep}${br||'零基础学会'}`,s:'教程型'});
+templates.push({t:`${kw}省钱攻略${sep}${br||'低至0元'}`,s:'优惠型'});
+templates.push({t:`${kw}常见问题FAQ${sep}${br||'汇总解答'}`,s:'FAQ型'});
+templates.push({t:`${kw}终极合集${sep}${br||'收藏备用'}`,s:'合集型'});
+templates.push({t:`${kw}一站式服务${sep}${br||'省心省力'}`,s:'服务型'});
+templates.push({t:`${kw}效果如何？${br||'看这里'}${sep}`,s:'引导型'});
+templates.push({t:`${kw} - ${br||'优质'}资源免费下载${sep}`,s:'资源型'});
+templates.push({t:`${kw}成功案例分享${sep}${br||'真实数据'}`,s:'案例型'});
+templates.push({t:`${kw}避坑指南${sep}${br||'少走弯路'}`,s:'避坑型'});
+templates.push({t:`${kw}必备工具清单${sep}${br||'精选推荐'}`,s:'清单型'});
+templates.push({t:`${kw}趋势分析${sep}${br||'未来展望'}`,s:'趋势型'});
+const filtered=templates.filter(t=>t.t.length<=maxLen+10);
+const selected=style==='mixed'?filtered:filtered.filter(t=>{const s=t.s;return style==='question'&&s.includes('疑问')||style==='list'&&s.includes('列表')||style==='urgent'&&s.includes('CTA')||style==='benefit'&&s.includes('免费')});
+const display=selected.length?selected:filtered;
+document.getElementById('results').innerHTML=display.map((item,i)=>{const len=item.t.length;const cls=len<=maxLen?'good':len<=maxLen+10?'warn':'bad';return`<div class="result-card"><div class="result-title">${esc(item.t)}<button class="copy-btn" onclick="copyTitle(${i})">复制</button></div><div class="result-meta"><span class="${cls}">长度：${len}/30字符</span><span>风格：${item.s}</span></div></div>`}).join('')+'<div id="genTitles" style="display:none">'+display.map(t=>esc(t.t)).join('\n')+'</div>';
+window._titles=display.map(t=>t.t)}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function copyTitle(i){if(window._titles&&window._titles[i]){navigator.clipboard.writeText(window._titles[i]);alert('已复制标题')}}
+</script>
+</body>
+</html>

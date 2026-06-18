@@ -1,0 +1,497 @@
+1|1|1|1|1|<!DOCTYPE html>
+2|2|2|2|2|<html lang="en">
+3|3|3|3|3|<head>
+4|4|4|4|4|    <meta charset="UTF-8">
+5|5|5|5|5|    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6|6|6|6|6|    <title>Chinese SEO Toolkit - Free SEO Tools, Tutorials &amp; Resources</title>
+7|7|7|7|7|    <meta name="description" content="中文SEO工具箱汇集最实用的中文SEO工具、教程和资源，帮助站长和营销人员提升网站搜索引擎排名。免费使用，持续更新。">
+8|8|8|8|8|    <meta name="keywords" content="Chinese SEO, SEO tools, keyword research, site audit, content optimization, technical SEO, link building">
+9|9|9|9|9|    <meta property="og:title" content="中文SEO工具箱 - 免费SEO工具、教程和资源导航">
+10|10|10|10|10|    <meta property="og:description" content="汇集最实用的中文SEO工具、教程和资源导航，帮助提升网站搜索引擎排名。">
+11|11|11|11|11|    <meta property="og:url" content="https://cn-seo.globalxyz.xyz/" />
+12|12|12|12|12|    <meta property="og:type" content="website">
+13|13|13|13|13|    <meta property="og:locale" content="zh_CN">
+14|14|14|14|14|    <link rel="canonical" href="https://cn-seo.globalxyz.xyz/" />
+15|15|15|15|15|    <script type="application/ld+json">
+16|16|16|16|16|    {
+17|17|17|17|17|        "@context": "https://schema.org",
+18|18|18|18|18|        "@type": "WebSite",
+19|19|19|19|19|        "name": "中文SEO工具箱",
+20|20|20|20|20|        "url": "http://cnseo.globalxyz.xyz/",
+21|21|21|21|21|        "description": "免费SEO工具、教程和资源导航",
+22|22|22|22|22|        "potentialAction": {
+23|23|23|23|23|            "@type": "SearchAction",
+24|24|24|24|24|            "target": "http://cnseo.globalxyz.xyz/?q={search_term_string}",
+25|25|25|25|25|            "query-input": "required name=search_term_string"
+26|26|26|26|26|        }
+27|27|27|27|27|    }
+28|28|28|28|28|    </script>
+29|29|29|29|29|    <script type="application/ld+json">
+30|30|30|30|30|    {
+31|31|31|31|31|        "@context": "https://schema.org",
+32|32|32|32|32|        "@type": "CollectionPage",
+33|33|33|33|33|        "name": "中文SEO工具箱",
+34|34|34|34|34|        "description": "汇集最实用的中文SEO工具、教程和资源导航",
+35|35|35|35|35|        "url": "http://cnseo.globalxyz.xyz/",
+36|36|36|36|36|        "mainEntity": {
+37|37|37|37|37|            "@type": "ItemList",
+38|38|38|38|38|            "itemListElement": [
+39|39|39|39|39|                {"@type": "ListItem", "position": 1, "name": "关键词研究工具"},
+40|40|40|40|40|                {"@type": "ListItem", "position": 2, "name": "网站分析工具"},
+41|41|41|41|41|                {"@type": "ListItem", "position": 3, "name": "内容优化工具"},
+42|42|42|42|42|                {"@type": "ListItem", "position": 4, "name": "技术SEO工具"},
+43|43|43|43|43|                {"@type": "ListItem", "position": 5, "name": "外链建设工具"},
+44|44|44|44|44|                {"@type": "ListItem", "position": 6, "name": "数据监控工具"}
+45|45|45|45|45|            ]
+46|46|46|46|46|        }
+47|47|47|47|47|    }
+48|48|48|48|48|    </script>
+49|49|49|49|49|    <style>
+50|50|50|50|50|        * { margin: 0; padding: 0; box-sizing: border-box; }
+51|51|51|51|51|        body {
+52|52|52|52|52|            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+53|53|53|53|53|            background: #f8fafc;
+54|54|54|54|54|            color: #334155;
+55|55|55|55|55|            line-height: 1.6;
+56|56|56|56|56|        }
+57|57|57|57|57|        .container {
+58|58|58|58|58|            max-width: 900px;
+59|59|59|59|59|            margin: 0 auto;
+60|60|60|60|60|            padding: 0 20px;
+61|61|61|61|61|        }
+62|62|62|62|62|        header {
+63|63|63|63|63|            background: linear-gradient(135deg, #3b82f6, #2563eb);
+64|64|64|64|64|            color: white;
+65|65|65|65|65|            padding: 48px 20px;
+66|66|66|66|66|            text-align: center;
+67|67|67|67|67|        }
+68|68|68|68|68|        header h1 {
+69|69|69|69|69|            font-size: 2.2rem;
+70|70|70|70|70|            margin-bottom: 10px;
+71|71|71|71|71|            font-weight: 700;
+72|72|72|72|72|        }
+73|73|73|73|73|        header .subtitle {
+74|74|74|74|74|            font-size: 1.1rem;
+75|75|75|75|75|            opacity: 0.9;
+76|76|76|76|76|        }
+77|77|77|77|77|        .hero {
+78|78|78|78|78|            background: white;
+79|79|79|79|79|            border-radius: 12px;
+80|80|80|80|80|            padding: 32px;
+81|81|81|81|81|            margin: -30px auto 40px;
+82|82|82|82|82|            max-width: 900px;
+83|83|83|83|83|            position: relative;
+84|84|84|84|84|            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+85|85|85|85|85|            text-align: center;
+86|86|86|86|86|        }
+87|87|87|87|87|        .hero p {
+88|88|88|88|88|            font-size: 1.05rem;
+89|89|89|89|89|            color: #475569;
+90|90|90|90|90|            max-width: 700px;
+91|91|91|91|91|            margin: 0 auto;
+92|92|92|92|92|        }
+93|93|93|93|93|        .section-title {
+94|94|94|94|94|            font-size: 1.5rem;
+95|95|95|95|95|            font-weight: 700;
+96|96|96|96|96|            color: #1e293b;
+97|97|97|97|97|            margin: 40px 0 20px;
+98|98|98|98|98|            padding-bottom: 10px;
+99|99|99|99|99|            border-bottom: 3px solid #3b82f6;
+100|100|100|100|100|            display: inline-block;
+101|101|101|101|101|        }
+102|102|102|102|102|        .cards-grid {
+103|103|103|103|103|            display: grid;
+104|104|104|104|104|            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+105|105|105|105|105|            gap: 20px;
+106|106|106|106|106|            margin-bottom: 20px;
+107|107|107|107|107|        }
+108|108|108|108|108|        .card {
+109|109|109|109|109|            background: white;
+110|110|110|110|110|            border-radius: 10px;
+111|111|111|111|111|            padding: 24px;
+112|112|112|112|112|            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+113|113|113|113|113|            transition: transform 0.2s, box-shadow 0.2s;
+114|114|114|114|114|            border: 1px solid #e2e8f0;
+115|115|115|115|115|            display: flex;
+116|116|116|116|116|            flex-direction: column;
+117|117|117|117|117|        }
+118|118|118|118|118|        .card:hover {
+119|119|119|119|119|            transform: translateY(-3px);
+120|120|120|120|120|            box-shadow: 0 6px 20px rgba(59,130,246,0.12);
+121|121|121|121|121|        }
+122|122|122|122|122|        .card-tag {
+123|123|123|123|123|            display: inline-block;
+124|124|124|124|124|            background: #eff6ff;
+125|125|125|125|125|            color: #3b82f6;
+126|126|126|126|126|            font-size: 0.75rem;
+127|127|127|127|127|            font-weight: 600;
+128|128|128|128|128|            padding: 3px 10px;
+129|129|129|129|129|            border-radius: 20px;
+130|130|130|130|130|            margin-bottom: 12px;
+131|131|131|131|131|            width: fit-content;
+132|132|132|132|132|        }
+133|133|133|133|133|        .card h3 {
+134|134|134|134|134|            font-size: 1.15rem;
+135|135|135|135|135|            color: #1e293b;
+136|136|136|136|136|            margin-bottom: 8px;
+137|137|137|137|137|        }
+138|138|138|138|138|        .card p {
+139|139|139|139|139|            font-size: 0.9rem;
+140|140|140|140|140|            color: #64748b;
+141|141|141|141|141|            flex: 1;
+142|142|142|142|142|            margin-bottom: 12px;
+143|143|143|143|143|        }
+144|144|144|144|144|        .card .pricing {
+145|145|145|145|145|            font-size: 0.8rem;
+146|146|146|146|146|            color: #22c55e;
+147|147|147|147|147|            font-weight: 600;
+148|148|148|148|148|            margin-bottom: 12px;
+149|149|149|149|149|        }
+150|150|150|150|150|        .card .card-link {
+151|151|151|151|151|            display: inline-block;
+152|152|152|152|152|            color: #3b82f6;
+153|153|153|153|153|            text-decoration: none;
+154|154|154|154|154|            font-size: 0.9rem;
+155|155|155|155|155|            font-weight: 600;
+156|156|156|156|156|        }
+157|157|157|157|157|        .card .card-link:hover {
+158|158|158|158|158|            text-decoration: underline;
+159|159|159|159|159|        }
+160|160|160|160|160|        .ad-slot {
+161|161|161|161|161|            border: 2px dashed #cbd5e1;
+162|162|162|162|162|            border-radius: 10px;
+163|163|163|163|163|            padding: 30px;
+164|164|164|164|164|            text-align: center;
+165|165|165|165|165|            color: #94a3b8;
+166|166|166|166|166|            font-size: 0.85rem;
+167|167|167|167|167|            margin: 30px 0;
+168|168|168|168|168|            background: #f1f5f9;
+169|169|169|169|169|        }
+170|170|170|170|170|        .subscribe-section {
+171|171|171|171|171|            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+172|172|172|172|172|            border-radius: 12px;
+173|173|173|173|173|            padding: 48px 32px;
+174|174|174|174|174|            text-align: center;
+175|175|175|175|175|            margin: 50px 0 40px;
+176|176|176|176|176|            color: white;
+177|177|177|177|177|        }
+178|178|178|178|178|        .subscribe-section h2 {
+179|179|179|179|179|            font-size: 1.6rem;
+180|180|180|180|180|            margin-bottom: 12px;
+181|181|181|181|181|        }
+182|182|182|182|182|        .subscribe-section p {
+183|183|183|183|183|            font-size: 1rem;
+184|184|184|184|184|            opacity: 0.9;
+185|185|185|185|185|            margin-bottom: 24px;
+186|186|186|186|186|            max-width: 500px;
+187|187|187|187|187|            margin-left: auto;
+188|188|188|188|188|            margin-right: auto;
+189|189|189|189|189|        }
+190|190|190|190|190|        .subscribe-form {
+191|191|191|191|191|            display: flex;
+192|192|192|192|192|            gap: 10px;
+193|193|193|193|193|            justify-content: center;
+194|194|194|194|194|            flex-wrap: wrap;
+195|195|195|195|195|        }
+196|196|196|196|196|        .subscribe-form input[type="email"] {
+197|197|197|197|197|            padding: 12px 18px;
+198|198|198|198|198|            border: none;
+199|199|199|199|199|            border-radius: 8px;
+200|200|200|200|200|            font-size: 1rem;
+201|201|201|201|201|            width: 300px;
+202|202|202|202|202|            max-width: 100%;
+203|203|203|203|203|            outline: none;
+204|204|204|204|204|        }
+205|205|205|205|205|        .subscribe-form button {
+206|206|206|206|206|            padding: 12px 28px;
+207|207|207|207|207|            background: #1e293b;
+208|208|208|208|208|            color: white;
+209|209|209|209|209|            border: none;
+210|210|210|210|210|            border-radius: 8px;
+211|211|211|211|211|            font-size: 1rem;
+212|212|212|212|212|            font-weight: 600;
+213|213|213|213|213|            cursor: pointer;
+214|214|214|214|214|            transition: background 0.2s;
+215|215|215|215|215|        }
+216|216|216|216|216|        .subscribe-form button:hover {
+217|217|217|217|217|            background: #0f172a;
+218|218|218|218|218|        }
+219|219|219|219|219|        footer {
+220|220|220|220|220|            background: #1e293b;
+221|221|221|221|221|            color: #94a3b8;
+222|222|222|222|222|            padding: 40px 20px;
+223|223|223|223|223|            text-align: center;
+224|224|224|224|224|        }
+225|225|225|225|225|        footer .footer-links {
+226|226|226|226|226|            display: flex;
+227|227|227|227|227|            gap: 24px;
+228|228|228|228|228|            justify-content: center;
+229|229|229|229|229|            flex-wrap: wrap;
+230|230|230|230|230|            margin-bottom: 20px;
+231|231|231|231|231|        }
+232|232|232|232|232|        footer .footer-links a {
+233|233|233|233|233|            color: #94a3b8;
+234|234|234|234|234|            text-decoration: none;
+235|235|235|235|235|            font-size: 0.9rem;
+236|236|236|236|236|        }
+237|237|237|237|237|        footer .footer-links a:hover {
+238|238|238|238|238|            color: white;
+239|239|239|239|239|        }
+240|240|240|240|240|        footer p {
+241|241|241|241|241|            font-size: 0.85rem;
+242|242|242|242|242|            opacity: 0.7;
+243|243|243|243|243|        }
+244|244|244|244|244|        @media (max-width: 600px) {
+245|245|245|245|245|            header { padding: 32px 16px; }
+246|246|246|246|246|            header h1 { font-size: 1.6rem; }
+247|247|247|247|247|            .hero { padding: 24px 18px; margin-top: -20px; }
+248|248|248|248|248|            .cards-grid { grid-template-columns: 1fr; }
+249|249|249|249|249|            .subscribe-section { padding: 32px 20px; }
+250|250|250|250|250|            .subscribe-form input[type="email"] { width: 100%; }
+251|251|251|251|251|        }
+252|252|252|252|252|    </style>
+253|253|253|253|253|    <link rel="alternate" hreflang="en" href="https://cn-seo.globalxyz.xyz/" />
+254|    <link rel="alternate" hreflang="zh-CN" href="https://cn-seo.globalxyz.xyz/" />
+255|    <link rel="alternate" hreflang="x-default" href="https://cn-seo.globalxyz.xyz/" />
+256|</head>
+257|254|254|254|254|    <style>
+258|255|255|255|255|        .lang-switch{position:fixed;top:15px;right:15px;z-index:9999;display:flex;border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.15);font-size:13px}
+259|256|256|256|256|        .lang-switch button{border:none;padding:6px 14px;cursor:pointer;font-weight:500;transition:all .2s}
+260|257|257|257|257|        .lang-switch .lang-en{background:#1a1a2e;color:#fff}
+261|258|258|258|258|        .lang-switch .lang-zh{background:#fff;color:#333;border:1px solid #ddd}
+262|259|259|259|259|        .lang-switch .lang-en.active{background:#3b82f6;color:#fff}
+263|260|260|260|260|        .lang-switch .lang-zh.active{background:#ef4444;color:#fff;border-color:#ef4444}
+264|261|261|261|261|        .lang-switch button:hover{opacity:.85}
+265|262|262|262|262|        .zh-content{display:none}
+266|263|263|263|263|        body.lang-zh .en-content{display:none}
+267|264|264|264|264|        body.lang-zh .zh-content{display:block}
+268|265|265|265|265|    </style>
+269|266|266|266|266|<body class="lang-en">
+270|267|267|267|267|    <div class="lang-switch">
+271|268|268|268|268|        <button class="lang-en active" onclick="setLang('en')">English</button>
+272|269|269|269|269|        <button class="lang-zh" onclick="setLang('zh')">中文</button>
+273|270|270|270|270|    </div>
+274|271|271|271|271|
+275|272|272|272|272|<header>
+276|273|273|273|273|    <div class="container">
+277|274|274|274|274|        <h1 class="en-content">🔍 Chinese SEO Toolkit</h1><h1 class="zh-content" style="display:none">🔍 中文SEO工具箱</h1>
+278|275|275|275|275|        <p class="subtitle">免费SEO工具、教程和资源导航</p>
+279|276|276|276|276|    </div>
+280|277|277|277|277|</header>
+281|278|278|278|278|
+282|279|279|279|279|<div class="container">
+283|280|280|280|280|    <div class="hero">
+284|281|281|281|281|        <p>中文SEO工具箱为站长、营销人员和内容创作者提供最全面的中文SEO工具集合。从关键词研究到网站分析，从内容优化到技术SEO，我们精心筛选并整理了各类实用工具，帮助你更高效地提升网站在搜索引擎中的排名表现。</p>
+285|282|282|282|282|    </div>
+286|283|283|283|283|
+287|284|284|284|284|    <h2 class="section-title">📊 关键词研究</h2>
+288|285|285|285|285|    <div class="cards-grid">
+289|286|286|286|286|        <div class="card">
+290|287|287|287|287|            <span class="card-tag">关键词挖掘</span>
+291|288|288|288|288|            <h3>5118关键词工具</h3>
+292|289|289|289|289|            <p>国内领先的关键词大数据平台，提供长尾词挖掘、关键词趋势分析、行业热词追踪等功能，数据覆盖面广，更新及时。</p>
+293|290|290|290|290|            <span class="pricing">💰 基础版免费 / VIP 199元/月起</span>
+294|291|291|291|291|            <a href="https://www.5118.com" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+295|292|292|292|292|        </div>
+296|293|293|293|293|        <div class="card">
+297|294|294|294|294|            <span class="card-tag">搜索趋势</span>
+298|295|295|295|295|            <h3>百度指数</h3>
+299|296|296|296|296|            <p>基于百度搜索大数据的免费趋势分析工具，可查看关键词的搜索热度变化、地域分布和人群画像，是了解中文搜索趋势的必备工具。</p>
+300|297|297|297|297|            <span class="pricing">💰 完全免费</span>
+301|298|298|298|298|            <a href="https://index.baidu.com" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+302|299|299|299|299|        </div>
+303|300|300|300|300|        <div class="card">
+304|301|301|301|301|            <span class="card-tag">全球关键词</span>
+305|302|302|302|302|            <h3>Google Keyword Planner</h3>
+306|303|303|303|303|            <p>Google官方关键词规划工具，提供搜索量估算和竞争度分析，适合需要同时优化国内和海外市场的SEO从业者。</p>
+307|304|304|304|304|            <span class="pricing">💰 免费（需Google Ads账号）</span>
+308|305|305|305|305|            <a href="https://ads.google.com/home/tools/keyword-planner/" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+309|306|306|306|306|        </div>
+310|307|307|307|307|    </div>
+311|308|308|308|308|
+312|309|309|309|309|    <div class="ad-slot">
+313|310|310|310|310|        广告位 · Ad Slot
+314|311|311|311|311|    </div>
+315|312|312|312|312|
+316|313|313|313|313|    <h2 class="section-title">🔍 网站分析</h2>
+317|314|314|314|314|    <div class="cards-grid">
+318|315|315|315|315|        <div class="card">
+319|316|316|316|316|            <span class="card-tag">百度生态</span>
+320|317|317|317|317|            <h3>百度站长平台</h3>
+321|318|318|318|318|            <p>百度官方提供的网站管理工具，支持提交收录、查看索引量、诊断抓取问题、获取搜索表现数据，是百度SEO的核心工具。</p>
+322|319|319|319|319|            <span class="pricing">💰 完全免费</span>
+323|320|320|320|320|            <a href="https://ziyuan.baidu.com" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+324|321|321|321|321|        </div>
+325|322|322|322|322|        <div class="card">
+326|323|323|323|323|            <span class="card-tag">Google生态</span>
+327|324|324|324|324|            <h3>Google Search Console</h3>
+328|325|325|325|325|            <p>Google官方搜索管理工具，提供索引状态、搜索表现、核心网页指标等数据，帮助网站在Google搜索中获得更好表现。</p>
+329|326|326|326|326|            <span class="pricing">💰 完全免费</span>
+330|327|327|327|327|            <a href="https://search.google.com/search-console" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+331|328|328|328|328|        </div>
+332|329|329|329|329|        <div class="card">
+333|330|330|330|330|            <span class="card-tag">竞品分析</span>
+334|331|331|331|331|            <h3>Ahrefs</h3>
+335|332|332|332|332|            <p>全球知名的SEO分析平台，提供外链分析、关键词排名追踪、竞品流量分析、内容研究等功能，数据准确且更新频繁。</p>
+336|333|333|333|333|            <span class="pricing">💰 $99/月起</span>
+337|334|334|334|334|            <a href="https://ahrefs.com" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+338|335|335|335|335|        </div>
+339|336|336|336|336|    </div>
+340|337|337|337|337|
+341|338|338|338|338|    <div class="ad-slot">
+342|339|339|339|339|        广告位 · Ad Slot
+343|340|340|340|340|    </div>
+344|341|341|341|341|
+345|342|342|342|342|    <h2 class="section-title">✍️ 内容优化</h2>
+346|343|343|343|343|    <div class="cards-grid">
+347|344|344|344|344|        <div class="card">
+348|345|345|345|345|            <span class="card-tag">内容数据</span>
+349|346|346|346|346|            <h3>新榜</h3>
+350|347|347|347|347|            <p>中国领先的内容创业服务平台，提供全平台内容数据分析、账号排名、行业趋势洞察，帮助内容创作者了解市场动态和用户偏好。</p>
+351|348|348|348|348|            <span class="pricing">💰 基础版免费 / 专业版按需</span>
+352|349|349|349|349|            <a href="https://www.newrank.cn" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+353|350|350|350|350|        </div>
+354|351|351|351|351|        <div class="card">
+355|352|352|352|352|            <span class="card-tag">短视频数据</span>
+356|353|353|353|353|            <h3>西瓜数据</h3>
+357|354|354|354|354|            <p>专注短视频和直播数据分析的平台，提供抖音、快手等平台的热门内容追踪、达人分析、选题推荐，助力内容策划。</p>
+358|355|355|355|355|            <span class="pricing">💰 基础版免费 / 专业版 99元/月起</span>
+359|356|356|356|356|            <a href="https://data.xiguaji.com" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+360|357|357|357|357|        </div>
+361|358|358|358|358|        <div class="card">
+362|359|359|359|359|            <span class="card-tag">内容助手</span>
+363|360|360|360|360|            <h3>5118内容助手</h3>
+364|361|361|361|361|            <p>基于AI的内容优化工具，提供SEO文章生成、内容改写、原创度检测、标题优化等功能，帮助快速产出高质量SEO内容。</p>
+365|362|362|362|362|            <span class="pricing">💰 有免费额度 / VIP 99元/月起</span>
+366|363|363|363|363|            <a href="https://www.5118.com/contentassistance" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+367|364|364|364|364|        </div>
+368|365|365|365|365|    </div>
+369|366|366|366|366|
+370|367|367|367|367|    <div class="ad-slot">
+371|368|368|368|368|        广告位 · Ad Slot
+372|369|369|369|369|    </div>
+373|370|370|370|370|
+374|371|371|371|371|    <h2 class="section-title">⚙️ 技术SEO</h2>
+375|372|372|372|372|    <div class="cards-grid">
+376|373|373|373|373|        <div class="card">
+377|374|374|374|374|            <span class="card-tag">爬虫检测</span>
+378|375|375|375|375|            <h3>Screaming Frog</h3>
+379|376|376|376|376|            <p>强大的网站爬虫工具，可模拟搜索引擎爬虫抓取网站，检测死链、重复内容、缺失标签、重定向等问题，技术SEO必备。</p>
+380|377|377|377|377|            <span class="pricing">💰 免费版500URL / 付费版£199/年</span>
+381|378|378|378|378|            <a href="https://www.screamingfrog.co.uk" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+382|379|379|379|379|        </div>
+383|380|380|380|380|        <div class="card">
+384|381|381|381|381|            <span class="card-tag">网站速度</span>
+385|382|382|382|382|            <h3>GTmetrix</h3>
+386|383|383|383|383|            <p>综合网站性能测试工具，结合Google Lighthouse和Web Vitals数据，提供加载速度评分、瀑布图分析和优化建议。</p>
+387|384|384|384|384|            <span class="pricing">💰 免费版可用 / Pro $14.95/月</span>
+388|385|385|385|385|            <a href="https://gtmetrix.com" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+389|386|386|386|386|        </div>
+390|387|387|387|387|        <div class="card">
+391|388|388|388|388|            <span class="card-tag">Core Web Vitals</span>
+392|389|389|389|389|            <h3>PageSpeed Insights</h3>
+393|390|390|390|390|            <p>Google官方网站速度测试工具，基于真实用户数据（CrUX）和实验室数据提供性能评分，直接反映Core Web Vitals表现。</p>
+394|391|391|391|391|            <span class="pricing">💰 完全免费</span>
+395|392|392|392|392|            <a href="https://pagespeed.web.dev" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+396|393|393|393|393|        </div>
+397|394|394|394|394|    </div>
+398|395|395|395|395|
+399|396|396|396|396|    <div class="ad-slot">
+400|397|397|397|397|        广告位 · Ad Slot
+401|398|398|398|398|    </div>
+402|399|399|399|399|
+403|400|400|400|400|    <h2 class="section-title">🔗 外链建设</h2>
+404|401|401|401|401|    <div class="cards-grid">
+405|402|402|402|402|        <div class="card">
+406|403|403|403|403|            <span class="card-tag">外链分析</span>
+407|404|404|404|404|            <h3>Ahrefs</h3>
+408|405|405|405|405|            <p>拥有最大的外链数据库之一，提供反向链接分析、链接质量评分、竞品外链对比、断链查找等功能，是外链建设的核心工具。</p>
+409|406|406|406|406|            <span class="pricing">💰 $99/月起</span>
+410|407|407|407|407|            <a href="https://ahrefs.com" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+411|408|408|408|408|        </div>
+412|409|409|409|409|        <div class="card">
+413|410|410|410|410|            <span class="card-tag">权威指标</span>
+414|411|411|411|411|            <h3>Majestic</h3>
+415|412|412|412|412|            <p>专注于外链数据的专业SEO工具，独特的Trust Flow和Citation Flow指标帮助评估网站权威性，适合深度外链研究。</p>
+416|413|413|413|413|            <span class="pricing">💰 $49.99/月起</span>
+417|414|414|414|414|            <a href="https://majestic.com" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+418|415|415|415|415|        </div>
+419|416|416|416|416|        <div class="card">
+420|417|417|417|417|            <span class="card-tag">综合工具</span>
+421|418|418|418|418|            <h3>站长工具</h3>
+422|419|419|419|419|            <p>国内老牌站长服务平台，提供友情链接检测、SEO综合查询、死链检测、Alexa排名查询等实用功能，中文网站外链管理的好帮手。</p>
+423|420|420|420|420|            <span class="pricing">💰 免费</span>
+424|421|421|421|421|            <a href="https://tool.chinaz.com" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+425|422|422|422|422|        </div>
+426|423|423|423|423|    </div>
+427|424|424|424|424|
+428|425|425|425|425|    <div class="ad-slot">
+429|426|426|426|426|        广告位 · Ad Slot
+430|427|427|427|427|    </div>
+431|428|428|428|428|
+432|429|429|429|429|    <h2 class="section-title">📈 数据监控</h2>
+433|430|430|430|430|    <div class="cards-grid">
+434|431|431|431|431|        <div class="card">
+435|432|432|432|432|            <span class="card-tag">百度分析</span>
+436|433|433|433|433|            <h3>百度统计</h3>
+437|434|434|434|434|            <p>百度官方网站流量分析工具，提供实时访客数据、流量来源分析、页面热力图、转化追踪等功能，与百度搜索生态深度集成。</p>
+438|435|435|435|435|            <span class="pricing">💰 完全免费</span>
+439|436|436|436|436|            <a href="https://tongji.baidu.com" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+440|437|437|437|437|        </div>
+441|438|438|438|438|        <div class="card">
+442|439|439|439|439|            <span class="card-tag">全球分析</span>
+443|440|440|440|440|            <h3>Google Analytics</h3>
+444|441|441|441|441|            <p>全球使用最广泛的网站分析工具，GA4版本提供用户行为追踪、转化归因、受众洞察、自定义报告等强大功能。</p>
+445|442|442|442|442|            <span class="pricing">💰 完全免费（GA360按需付费）</span>
+446|443|443|443|443|            <a href="https://analytics.google.com" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+447|444|444|444|444|        </div>
+448|445|445|445|445|        <div class="card">
+449|446|446|446|446|            <span class="card-tag">综合查询</span>
+450|447|447|447|447|            <h3>站长之家</h3>
+451|448|448|448|448|            <p>国内知名站长社区和工具平台，提供SEO综合查询、关键词排名监控、Whois查询、备案查询等一站式网站管理工具。</p>
+452|449|449|449|449|            <span class="pricing">💰 基础功能免费</span>
+453|450|450|450|450|            <a href="https://www.chinaz.com" target="_blank" rel="noopener" class="card-link">访问官网 →</a>
+454|451|451|451|451|        </div>
+455|452|452|452|452|    </div>
+456|453|453|453|453|</div>
+457|454|454|454|454|
+458|455|455|455|455|<div class="container">
+459|456|456|456|456|    <div class="subscribe-section">
+460|457|457|457|457|        <h2>📬 订阅SEO资讯</h2>
+461|458|458|458|458|        <p>获取最新的中文SEO工具推荐、算法更新解读和实战技巧，每周精选发送，拒绝垃圾邮件。</p>
+462|459|459|459|459|        <div class="subscribe-form">
+463|460|460|460|460|            <input type="email" placeholder="请输入您的邮箱地址" aria-label="邮箱地址">
+464|461|461|461|461|            <button type="button">立即订阅</button>
+465|462|462|462|462|        </div>
+466|463|463|463|463|    </div>
+467|464|464|464|464|</div>
+468|465|465|465|465|
+469|466|466|466|466|<footer>
+470|467|467|467|467|    <div class="container">
+471|468|468|468|468|        <div class="footer-links">
+472|469|469|469|469|            <a href="#">首页</a>
+473|470|470|470|470|            <a href="#">SEO工具</a>
+474|471|471|471|471|            <a href="#">SEO教程</a>
+475|472|472|472|472|            <a href="#">资源导航</a>
+476|473|473|473|473|            <a href="#">关于我们</a>
+477|474|474|474|474|            <a href="#">隐私政策</a>
+478|475|475|475|475|        </div>
+479|476|476|476|476|        <p>© 2026 中文SEO工具箱 - 让SEO更简单</p>
+480|477|477|477|477|    </div>
+481|478|478|478|478|</footer>
+482|479|479|479|479|
+483|480|480|480|480|    <script>
+484|481|481|481|481|    function setLang(lang) {
+485|482|482|482|482|        document.body.className = 'lang-' + lang;
+486|483|483|483|483|        document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+487|484|484|484|484|        document.querySelector('.lang-switch .lang-' + lang).classList.add('active');
+488|485|485|485|485|        localStorage.setItem('site_lang', lang);
+489|486|486|486|486|    }
+490|487|487|487|487|    (function() {
+491|488|488|488|488|        var saved = localStorage.getItem('site_lang') || 'en';
+492|489|489|489|489|        setLang(saved);
+493|490|490|490|490|    })();
+494|491|491|491|491|    </script>
+495|492|492|492|492|</body>
+496|493|493|493|493|</html>
+497|494|494|494|494|
